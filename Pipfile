@@ -8,6 +8,7 @@ uvicorn = "*"
 sqlalchemy = "*"
 pydantic = "*"
 fastapi = {extras = ["standard"], version = "*"}
+requests = "*"
 
 [dev-packages]
 
