@@ -7,6 +7,23 @@ from typing import List, Optional
 from sqlalchemy.types import TypeDecorator
 import json
 from fastapi.middleware.cors import CORSMiddleware
+#request to keep server alive
+import threading
+import requests
+
+def keep_alive():
+    try:
+        # Replace 'your-app-url' with your Render app URL
+        requests.get("https://phase-3-project-backend.onrender.com")
+    except requests.exceptions.RequestException:
+        pass  # Ignore any errors
+
+    # Schedule the function to run again in 5 minutes
+    threading.Timer(300, keep_alive).start()
+
+# Start the keep-alive function when the app starts
+keep_alive()
+#keep alive ends here
 
 # Initialize FastAPI app
 app = FastAPI()
