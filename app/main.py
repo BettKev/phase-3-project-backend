@@ -15,6 +15,7 @@ app = FastAPI()
 origins = [
     "http://localhost:5173",  # Frontend origin
     "http://127.0.0.1:5173",  # Alternative localhost
+    "https://phase-3-project-frontend-nine.vercel.app/" #remote host
 ]
 
 app.add_middleware(
