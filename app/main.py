@@ -139,6 +139,10 @@ class PersonResponse(PersonCreate):
         orm_mode = True  # Allows conversion from SQLAlchemy models to Pydantic models
 
 # Routes
+#Keep alive
+@app.get("/health")
+def health():
+    return "Keep alive success"
 
 # Get all registered persons
 @app.get("/persons", response_model=List[PersonResponse])
